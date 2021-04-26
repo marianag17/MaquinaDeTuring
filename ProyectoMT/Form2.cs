@@ -25,6 +25,7 @@ namespace ProyectoMT
         int pos=4;
         int op = 0;
         int estactual = 0;
+        bool terminado = false;
         public Form2(int opcion)
         {
             InitializeComponent();
@@ -34,6 +35,8 @@ namespace ProyectoMT
         private void Form2_Load(object sender, EventArgs e)
         {
             button2.Enabled = false;
+            btnauto.Enabled = false;
+            btnstep.Enabled = false;
         }
 
         private void button1_Click(object sender, EventArgs e) //leer archivo .txt
@@ -85,8 +88,10 @@ namespace ProyectoMT
                             }
                         }
                         file.Close();
+                        button2.Enabled = true;
+                        button1.Enabled = false;
                     }
-                    button2.Enabled = true;
+                    
                 }
             }
             catch
@@ -118,6 +123,8 @@ namespace ProyectoMT
                 string texto = string.Join(" ", entrada);
                 lblcinta.Text = texto;
             }
+            btnstep.Enabled = true;
+            btnauto.Enabled = true;
         }
         private void btnstep_Click(object sender, EventArgs e)
         {
@@ -171,45 +178,46 @@ namespace ProyectoMT
 
         private void leer(int posicion, int estadoactual)
         {
-            bool correcto = false;
             int estadoActual = estadoactual;
             string lectura = entrada[posicion];
-            foreach (var item in transiciones)
+            while (!terminado)
             {
-                if (lectura == item.Leido && estadoActual == item.EstadoInicial)
+                foreach (var item in transiciones)
                 {
-                    correcto = true;
-                    entrada[posicion] = item.AEscribir;
-                    lblescritura.Text = item.AEscribir;
-                    estadoActual = item.EstadoFinal;
-                    string texto = string.Join(" ", entrada);
-                    lblcinta.Text = texto;
-
-                    if (sigue(item))
+                    if (lectura == item.Leido && estadoActual == item.EstadoInicial)
                     {
-                        if (item.Movimiento == "d" || item.Movimiento == "D")
+                        entrada[posicion] = item.AEscribir;
+                        lblescritura.Text = item.AEscribir;
+                        estadoActual = item.EstadoFinal;
+                        string texto = string.Join(" ", entrada);
+                        lblcinta.Text = texto;
+                        if (sigue(item))
                         {
-                            lbllectura.Text = entrada[posicion + 1];
-                            lblestadoanterior.Text = Convert.ToString(estadoActual);
-                            leer(posicion + 1, item.EstadoFinal);
+                            if (item.Movimiento == "d" || item.Movimiento == "D")
+                            {
+                                lbllectura.Text = entrada[posicion + 1];
+                                lblestadoanterior.Text = Convert.ToString(estadoActual);
+                                leer(posicion + 1, item.EstadoFinal);
+                            }
+                            if (item.Movimiento == "i" || item.Movimiento == "I")
+                            {
+                                lbllectura.Text = entrada[posicion - 1];
+                                lblestadoanterior.Text = Convert.ToString(estadoActual);
+                                leer(posicion - 1, item.EstadoFinal);
+                            }
+                            if (item.Movimiento == "0")
+                            {
+                                lbllectura.Text = entrada[posicion];
+                                lblestadoanterior.Text = Convert.ToString(estadoActual);
+                                leer(posicion, item.EstadoFinal);
+                            }
                         }
-                        if (item.Movimiento == "i" || item.Movimiento == "I")
+                        else
                         {
-                            lbllectura.Text = entrada[posicion - 1];
-                            lblestadoanterior.Text = Convert.ToString(estadoActual);
-                            leer(posicion - 1, item.EstadoFinal);
+                            terminado = true;
+                            MessageBox.Show("TERMINADO");
+                            break;
                         }
-                        if (item.Movimiento == "0")
-                        {
-                            lbllectura.Text = entrada[posicion];
-                            lblestadoanterior.Text = Convert.ToString(estadoActual);
-                            leer(posicion, item.EstadoFinal);
-                        }
-                    }
-                    else
-                    {
-                        correcto = true;
-                        MessageBox.Show("TERMINADO");
                     }
                 }
             }
@@ -220,6 +228,14 @@ namespace ProyectoMT
         private void btnauto_Click(object sender, EventArgs e)
         {
             leer(ini, estadoInicial);
+        }
+
+        private void btnstop_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var form2 = new Form2(op);
+            form2.Closed += (s, args) => this.Close();
+            form2.Show();
         }
     }
 }

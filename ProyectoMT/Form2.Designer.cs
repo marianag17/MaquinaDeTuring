@@ -130,6 +130,7 @@ namespace ProyectoMT
             this.btnstop.TabIndex = 7;
             this.btnstop.Text = "STOP";
             this.btnstop.UseVisualStyleBackColor = true;
+            this.btnstop.Click += new System.EventHandler(this.btnstop_Click);
             // 
             // lbllectura
             // 
