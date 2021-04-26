@@ -184,41 +184,46 @@ namespace ProyectoMT
             {
                 foreach (var item in transiciones)
                 {
-                    if (lectura == item.Leido && estadoActual == item.EstadoInicial)
+                    if (!terminado)
                     {
-                        entrada[posicion] = item.AEscribir;
-                        lblescritura.Text = item.AEscribir;
-                        estadoActual = item.EstadoFinal;
-                        string texto = string.Join(" ", entrada);
-                        lblcinta.Text = texto;
-                        if (sigue(item))
+                        if (lectura == item.Leido && estadoActual == item.EstadoInicial)
                         {
-                            if (item.Movimiento == "d" || item.Movimiento == "D")
+                            entrada[posicion] = item.AEscribir;
+                            lblescritura.Text = item.AEscribir;
+                            estadoActual = item.EstadoFinal;
+                            string texto = string.Join(" ", entrada);
+                            lblcinta.Text = texto;
+                            if (sigue(item))
                             {
-                                lbllectura.Text = entrada[posicion + 1];
-                                lblestadoanterior.Text = Convert.ToString(estadoActual);
-                                leer(posicion + 1, item.EstadoFinal);
+                                if (item.Movimiento == "d" || item.Movimiento == "D")
+                                {
+                                    lbllectura.Text = entrada[posicion + 1];
+                                    lblestadoanterior.Text = Convert.ToString(estadoActual);
+                                    leer(posicion + 1, item.EstadoFinal);
+                                }
+                                if (item.Movimiento == "i" || item.Movimiento == "I")
+                                {
+                                    lbllectura.Text = entrada[posicion - 1];
+                                    lblestadoanterior.Text = Convert.ToString(estadoActual);
+                                    leer(posicion - 1, item.EstadoFinal);
+                                }
+                                if (item.Movimiento == "0")
+                                {
+                                    lbllectura.Text = entrada[posicion];
+                                    lblestadoanterior.Text = Convert.ToString(estadoActual);
+                                    leer(posicion, item.EstadoFinal);
+                                }
                             }
-                            if (item.Movimiento == "i" || item.Movimiento == "I")
+                            else
                             {
-                                lbllectura.Text = entrada[posicion - 1];
-                                lblestadoanterior.Text = Convert.ToString(estadoActual);
-                                leer(posicion - 1, item.EstadoFinal);
+
+                                terminado = true;
+                                MessageBox.Show("TERMINADO");
+                                break;
                             }
-                            if (item.Movimiento == "0")
-                            {
-                                lbllectura.Text = entrada[posicion];
-                                lblestadoanterior.Text = Convert.ToString(estadoActual);
-                                leer(posicion, item.EstadoFinal);
-                            }
-                        }
-                        else
-                        {
-                            terminado = true;
-                            MessageBox.Show("TERMINADO");
-                            break;
                         }
                     }
+                    else { break; }
                 }
             }
 
