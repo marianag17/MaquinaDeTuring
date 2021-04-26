@@ -118,6 +118,7 @@ namespace ProyectoMT
             this.btnauto.TabIndex = 6;
             this.btnauto.Text = "AUTO";
             this.btnauto.UseVisualStyleBackColor = true;
+            this.btnauto.Click += new System.EventHandler(this.btnauto_Click);
             // 
             // btnstop
             // 

@@ -21,6 +21,7 @@ namespace ProyectoMT
         List<Estado> listaestados = new List<Estado>();
         List<string> entrada = new List<string>();
         string entradatbx = "";
+        int ini = 4;
 
         int op = 0;
         public Form2(int opcion)
@@ -116,21 +117,73 @@ namespace ProyectoMT
                 lblcinta.Text = texto;
             }
         }
-
         private void btnstep_Click(object sender, EventArgs e)
         {
-            //bool correcto = true, completado = false;
+            
+        }
+        private bool sigue(Transicion trans)
+        {
+            if (trans.Movimiento=="p"||trans.Movimiento=="P")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
 
-            //while (correcto && !completado)
-            //{
-            //    //foreach (var item in transiciones)
-            //    //{
-            //    //    if (lbllectura.Text==item.Leido && lblestadoactual.Text==Convert.ToString(item.EstadoInicial))
-            //    //    {
+        private void leer(int posicion, int estadoactual)
+        {
+            bool correcto = false;
+            int estadoActual = estadoactual;
+            string lectura =entrada[posicion];
+            foreach (var item in transiciones)
+            {
+               if (lectura == item.Leido && estadoActual == item.EstadoInicial)
+               {
+                  correcto = true;
+                  entrada[posicion] = item.AEscribir;
+                  lblescritura.Text = item.AEscribir;
+                  estadoActual = item.EstadoFinal;
+                  string texto = string.Join(" ", entrada);
+                  lblcinta.Text = texto;
 
-            //    //    }
-            //    //}
-            //}
+                  if (sigue(item))
+                  {
+                     if (item.Movimiento=="d"|| item.Movimiento == "D")
+                     {
+                            lbllectura.Text = entrada[posicion + 1];
+                            lblestadoanterior.Text = Convert.ToString(estadoActual);
+                            leer(posicion + 1,item.EstadoFinal);
+                     }
+                     if (item.Movimiento=="i"|| item.Movimiento == "I")
+                     {
+                            lbllectura.Text = entrada[posicion -1];
+                            lblestadoanterior.Text = Convert.ToString(estadoActual);
+                            leer(posicion - 1,item.EstadoFinal);
+                     }
+                     if (item.Movimiento=="0")
+                     {
+                            lbllectura.Text = entrada[posicion];
+                            lblestadoanterior.Text = Convert.ToString(estadoActual);
+                            leer(posicion,item.EstadoFinal);
+                     }
+                  }
+                  else
+                  {
+                        correcto = true;
+                        MessageBox.Show("TERMINADO");
+                  }
+               }
+            }
+         
+            
+        }
+
+        private void btnauto_Click(object sender, EventArgs e)
+        {
+            leer(ini, estadoInicial);
         }
     }
 }
