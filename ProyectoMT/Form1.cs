@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Reflection;
 
 namespace ProyectoMT
 {
@@ -49,6 +51,11 @@ namespace ProyectoMT
             var form2 = new Form2(op);
             form2.Closed += (s, args) => this.Close();
             form2.Show();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

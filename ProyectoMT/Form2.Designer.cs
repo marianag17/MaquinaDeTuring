@@ -44,6 +44,7 @@ namespace ProyectoMT
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblcinta
@@ -51,7 +52,7 @@ namespace ProyectoMT
             this.lblcinta.AutoSize = true;
             this.lblcinta.BackColor = System.Drawing.SystemColors.Control;
             this.lblcinta.Font = new System.Drawing.Font("Courier New", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblcinta.Location = new System.Drawing.Point(78, 125);
+            this.lblcinta.Location = new System.Drawing.Point(75, 110);
             this.lblcinta.Name = "lblcinta";
             this.lblcinta.Size = new System.Drawing.Size(0, 24);
             this.lblcinta.TabIndex = 0;
@@ -60,7 +61,7 @@ namespace ProyectoMT
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(63, 202);
+            this.label1.Location = new System.Drawing.Point(28, 169);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(158, 18);
             this.label1.TabIndex = 1;
@@ -70,7 +71,7 @@ namespace ProyectoMT
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(63, 241);
+            this.label2.Location = new System.Drawing.Point(28, 202);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(178, 18);
             this.label2.TabIndex = 2;
@@ -80,7 +81,7 @@ namespace ProyectoMT
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(63, 282);
+            this.label3.Location = new System.Drawing.Point(28, 233);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(138, 18);
             this.label3.TabIndex = 3;
@@ -90,7 +91,7 @@ namespace ProyectoMT
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(63, 323);
+            this.label4.Location = new System.Drawing.Point(28, 263);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(158, 18);
             this.label4.TabIndex = 4;
@@ -98,6 +99,7 @@ namespace ProyectoMT
             // 
             // btnstep
             // 
+            this.btnstep.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnstep.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnstep.Font = new System.Drawing.Font("Courier New", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnstep.Location = new System.Drawing.Point(65, 400);
@@ -105,11 +107,12 @@ namespace ProyectoMT
             this.btnstep.Size = new System.Drawing.Size(155, 37);
             this.btnstep.TabIndex = 5;
             this.btnstep.Text = "STEP";
-            this.btnstep.UseVisualStyleBackColor = true;
+            this.btnstep.UseVisualStyleBackColor = false;
             this.btnstep.Click += new System.EventHandler(this.btnstep_Click);
             // 
             // btnauto
             // 
+            this.btnauto.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnauto.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnauto.Font = new System.Drawing.Font("Courier New", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnauto.Location = new System.Drawing.Point(299, 400);
@@ -117,11 +120,12 @@ namespace ProyectoMT
             this.btnauto.Size = new System.Drawing.Size(155, 37);
             this.btnauto.TabIndex = 6;
             this.btnauto.Text = "AUTO";
-            this.btnauto.UseVisualStyleBackColor = true;
+            this.btnauto.UseVisualStyleBackColor = false;
             this.btnauto.Click += new System.EventHandler(this.btnauto_Click);
             // 
             // btnstop
             // 
+            this.btnstop.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnstop.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnstop.Font = new System.Drawing.Font("Courier New", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnstop.Location = new System.Drawing.Point(526, 400);
@@ -129,14 +133,14 @@ namespace ProyectoMT
             this.btnstop.Size = new System.Drawing.Size(155, 37);
             this.btnstop.TabIndex = 7;
             this.btnstop.Text = "STOP";
-            this.btnstop.UseVisualStyleBackColor = true;
+            this.btnstop.UseVisualStyleBackColor = false;
             this.btnstop.Click += new System.EventHandler(this.btnstop_Click);
             // 
             // lbllectura
             // 
             this.lbllectura.AutoSize = true;
             this.lbllectura.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbllectura.Location = new System.Drawing.Point(310, 202);
+            this.lbllectura.Location = new System.Drawing.Point(327, 162);
             this.lbllectura.Name = "lbllectura";
             this.lbllectura.Size = new System.Drawing.Size(0, 18);
             this.lbllectura.TabIndex = 8;
@@ -145,7 +149,7 @@ namespace ProyectoMT
             // 
             this.lblescritura.AutoSize = true;
             this.lblescritura.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblescritura.Location = new System.Drawing.Point(310, 241);
+            this.lblescritura.Location = new System.Drawing.Point(327, 201);
             this.lblescritura.Name = "lblescritura";
             this.lblescritura.Size = new System.Drawing.Size(0, 18);
             this.lblescritura.TabIndex = 9;
@@ -154,7 +158,7 @@ namespace ProyectoMT
             // 
             this.lblestadoanterior.AutoSize = true;
             this.lblestadoanterior.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblestadoanterior.Location = new System.Drawing.Point(313, 318);
+            this.lblestadoanterior.Location = new System.Drawing.Point(329, 263);
             this.lblestadoanterior.Name = "lblestadoanterior";
             this.lblestadoanterior.Size = new System.Drawing.Size(0, 18);
             this.lblestadoanterior.TabIndex = 11;
@@ -163,25 +167,27 @@ namespace ProyectoMT
             // 
             this.lblestadoactual.AutoSize = true;
             this.lblestadoactual.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblestadoactual.Location = new System.Drawing.Point(313, 279);
+            this.lblestadoactual.Location = new System.Drawing.Point(329, 228);
             this.lblestadoactual.Name = "lblestadoactual";
             this.lblestadoactual.Size = new System.Drawing.Size(0, 18);
             this.lblestadoactual.TabIndex = 10;
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Courier New", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(158, 24);
+            this.button1.Location = new System.Drawing.Point(189, 24);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(155, 37);
             this.button1.TabIndex = 12;
             this.button1.Text = "Archivo MT";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("Courier New", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(541, 24);
@@ -189,7 +195,7 @@ namespace ProyectoMT
             this.button2.Size = new System.Drawing.Size(155, 73);
             this.button2.TabIndex = 13;
             this.button2.Text = "Ingresar Entrada";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // textBox1
@@ -200,12 +206,26 @@ namespace ProyectoMT
             this.textBox1.Size = new System.Drawing.Size(152, 26);
             this.textBox1.TabIndex = 14;
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button3.Font = new System.Drawing.Font("Courier New", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(31, 24);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(67, 74);
+            this.button3.TabIndex = 15;
+            this.button3.Text = "←";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(750, 467);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -246,5 +266,6 @@ namespace ProyectoMT
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button3;
     }
 }
