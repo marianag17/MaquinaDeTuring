@@ -15,18 +15,20 @@ namespace ProyectoMT
 {
     public partial class Form2 : Form
     {
-        int estados = 0;
-        int estadoInicial = 0;
-        List<string> alfabeto = new List<string>();
-        List<Transicion> transiciones = new List<Transicion>();
-        List<Estado> listaestados = new List<Estado>();
-        List<string> entrada = new List<string>();
-        string entradatbx = "";
-        int ini = 4;
-        int pos = 4;
+        //variables globales a utilizar
+        int estados = 0; //numero de estados
+        int estadoInicial = 0; //estado inicial
+        List<string> alfabeto = new List<string>(); //lista de alfabeto
+        List<Transicion> transiciones = new List<Transicion>(); //lista de transiciones
+        List<Estado> listaestados = new List<Estado>(); //lista de estados
+        List<string> entrada = new List<string>(); //lista de caracteres en la entrada
+        string entradatbx = ""; //string recibido de entrada
+        int ini = 0; //posicion inicial de la lista 
+        int pos = 0;
         int op = 0;
-        int estactual = 0;
+        int estactual = 1;
         bool terminado = false;
+        bool correcto = false;
         public Form2(int opcion)
         {
             InitializeComponent();
@@ -37,6 +39,7 @@ namespace ProyectoMT
         {
             button2.Enabled = false;
             btnauto.Enabled = false;
+            label5.Hide();
             btnstep.Enabled = false;
         }
 
@@ -66,7 +69,7 @@ namespace ProyectoMT
                             if (counter == 1)
                             {
                                 estados = Convert.ToInt32(line);
-                                for (int i = 0; i < estados; i++)
+                                for (int i = 1; i <= estados; i++)
                                 {
                                     Estado estado = new Estado(i);
                                     listaestados.Add(estado);
@@ -111,10 +114,6 @@ namespace ProyectoMT
             else
             {
                 lblestadoactual.Text = Convert.ToString(estadoInicial);
-                entrada.Add("_");
-                entrada.Add("_");
-                entrada.Add("_");
-                entrada.Add("_");
                 entrada.AddRange(entradatbx.Select(c => c.ToString()));
                 entrada.Add("_");
                 entrada.Add("_");
@@ -126,6 +125,7 @@ namespace ProyectoMT
             }
             btnstep.Enabled = true;
             btnauto.Enabled = true;
+            label5.Show();
         }
         private void btnstep_Click(object sender, EventArgs e)
         {
@@ -134,6 +134,7 @@ namespace ProyectoMT
         }
         private void lecturastep(List<string> entradaa, int estadoa, int posicion)
         {
+            
             bool terminado = false;
             bool correcto = false;
             string lectura = entrada[pos];
@@ -157,15 +158,18 @@ namespace ProyectoMT
                         {
                             
                             pos++;
+                            label5.Location = new Point(label5.Location.X + 17, label5.Location.Y);
                             break;
                         }
                         if (item.Movimiento == "i" || item.Movimiento == "I")
                         {
                             pos--;
+                            label5.Location = new Point(label5.Location.X - 17, label5.Location.Y);
                             break;
                         }
                         if (item.Movimiento == "0")
                         {
+                            label5.Location = new Point(label5.Location.X, label5.Location.Y);
                             break;
                         }
                         if (item.Movimiento == "p" || item.Movimiento == "P")
@@ -203,12 +207,12 @@ namespace ProyectoMT
             {
                 if (entrada.Contains("S") && entrada.Contains("I"))
                 {
-                    MessageBox.Show("SI", "AVISO");
+                    MessageBox.Show("SI ( ♥ ͜ʖ ♥)", "AVISO");
                     btnstep.Enabled = false;
                 }
                 if (entrada.Contains("N") && entrada.Contains("O"))
                 {
-                    MessageBox.Show("NO", "AVISO");
+                    MessageBox.Show("NO ಠ╭╮ಠ", "AVISO");
                     btnstep.Enabled = false;
                 }
             }
@@ -227,7 +231,7 @@ namespace ProyectoMT
 
         private void leer(int posicion, int estadoactual)
         {
-            bool correcto = false;
+            label5.Hide();
             int estadoActual = estadoactual;
             string lectura = entrada[posicion];
             foreach (var item in transiciones)
@@ -246,6 +250,7 @@ namespace ProyectoMT
                             lblcinta.Text = texto;
                             if (sigue(item))
                             {
+                                terminado = false;
                                 if (item.Movimiento == "d" || item.Movimiento == "D")
                                 {
                                     lbllectura.Text = entrada[posicion + 1];
@@ -282,11 +287,16 @@ namespace ProyectoMT
                 else
                 {
                     correcto = false;
+                    terminado = true;
                     break;
                 }
                 
             }
-            if (!correcto && !terminado)
+        }
+        private void mensaje(bool cor, bool ter)
+        {
+            
+            if (!cor && ter)
             {
                 if (op == 1)
                 {
@@ -299,24 +309,24 @@ namespace ProyectoMT
                     btnstep.Enabled = false;
                 }
             }
-            if (op == 3)
+            if (op == 3 && ter)
             {
                 if (entrada.Contains("S") && entrada.Contains("I"))
                 {
-                    MessageBox.Show("SI", "AVISO");
+                    MessageBox.Show("SI ( ♥ ͜ʖ ♥)", "AVISO");
                     btnstep.Enabled = false;
                 }
                 if (entrada.Contains("N") && entrada.Contains("O"))
                 {
-                    MessageBox.Show("NO", "AVISO");
+                    MessageBox.Show("NO ಠ╭╮ಠ", "AVISO");
                     btnstep.Enabled = false;
                 }
             }
         }
-
         private void btnauto_Click(object sender, EventArgs e)
         {
             leer(ini, estadoInicial);
+            mensaje(correcto, terminado);
         }
 
         private void btnstop_Click(object sender, EventArgs e)
