@@ -62,6 +62,7 @@ namespace ProyectoMT
                     if (openFileDialog.ShowDialog() == DialogResult.OK)
                     {
                         filePath = openFileDialog.FileName;
+                        textBox2.Text = filePath.ToString();
                         System.IO.StreamReader file = new System.IO.StreamReader(filePath);
                         while ((line = file.ReadLine()) != null)
                         {

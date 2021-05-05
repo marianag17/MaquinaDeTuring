@@ -9,3 +9,14 @@ C:\Users\user\Desktop\URL\AAAAPRIMER CICLO 2021\LFA\ProyectoMT\ProyectoMT\bin\De
 C:\Users\user\Desktop\URL\AAAAPRIMER CICLO 2021\LFA\ProyectoMT\ProyectoMT\bin\Debug\ProyectoMT.pdb
 C:\Users\user\Desktop\URL\AAAAPRIMER CICLO 2021\LFA\ProyectoMT\ProyectoMT\obj\Debug\ProyectoMT.exe
 C:\Users\user\Desktop\URL\AAAAPRIMER CICLO 2021\LFA\ProyectoMT\ProyectoMT\obj\Debug\ProyectoMT.pdb
+C:\Users\javier\Desktop\MaquinaDeTuring\ProyectoMT\bin\Debug\ProyectoMT.exe.config
+C:\Users\javier\Desktop\MaquinaDeTuring\ProyectoMT\bin\Debug\ProyectoMT.exe
+C:\Users\javier\Desktop\MaquinaDeTuring\ProyectoMT\bin\Debug\ProyectoMT.pdb
+C:\Users\javier\Desktop\MaquinaDeTuring\ProyectoMT\obj\Debug\ProyectoMT.csprojAssemblyReference.cache
+C:\Users\javier\Desktop\MaquinaDeTuring\ProyectoMT\obj\Debug\ProyectoMT.Form1.resources
+C:\Users\javier\Desktop\MaquinaDeTuring\ProyectoMT\obj\Debug\ProyectoMT.Form2.resources
+C:\Users\javier\Desktop\MaquinaDeTuring\ProyectoMT\obj\Debug\ProyectoMT.Properties.Resources.resources
+C:\Users\javier\Desktop\MaquinaDeTuring\ProyectoMT\obj\Debug\ProyectoMT.csproj.GenerateResource.cache
+C:\Users\javier\Desktop\MaquinaDeTuring\ProyectoMT\obj\Debug\ProyectoMT.csproj.CoreCompileInputs.cache
+C:\Users\javier\Desktop\MaquinaDeTuring\ProyectoMT\obj\Debug\ProyectoMT.exe
+C:\Users\javier\Desktop\MaquinaDeTuring\ProyectoMT\obj\Debug\ProyectoMT.pdb
