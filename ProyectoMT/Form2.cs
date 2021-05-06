@@ -179,12 +179,14 @@ namespace ProyectoMT
                             if (op == 1)
                             {
                                 MessageBox.Show("PALABRA ACEPTADA POR EL LENGUAJE ( ♥ ͜ʖ ♥)","AVISO");
+                                correcto = true;
                                 terminado = true;
                                 btnstep.Enabled = false;//ya no se puede dar más pasos
                             }
-                            if (op == 2)
+                            else
                             {
                                 MessageBox.Show("TERMINADO ( ♥ ͜ʖ ♥)", "AVISO");
+                                correcto = true;
                                 terminado = true;
                                 btnstep.Enabled = false;//ya no se puede dar más pasos
                             }
